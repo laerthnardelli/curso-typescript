@@ -10,4 +10,11 @@ console.log("Nome = " + nome);
 //   let nome: string = 'Ana';
 //   console.log(`Nome = ${nome}`); //se refere a um contexto diferete,
 // })();
+function soma(a, b) {
+    return a + b;
+}
+// noImplicitAny
+var qualquerCoisa;
+qualquerCoisa = 12;
+qualquerCoisa = 'abc';
 //# sourceMappingURL=compilador.js.map

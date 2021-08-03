@@ -13,3 +13,14 @@ console.log(`Nome = ${nome}`);
 //   let nome: string = 'Ana';
 //   console.log(`Nome = ${nome}`); //se refere a um contexto diferete,
 // })();
+
+
+function soma(a: any, b: any) {
+  return a + b;
+}
+
+
+// noImplicitAny
+let qualquerCoisa;
+qualquerCoisa = 12;
+qualquerCoisa = 'abc';
