@@ -17,4 +17,15 @@ function soma(a, b) {
 var qualquerCoisa;
 qualquerCoisa = 12;
 qualquerCoisa = 'abc';
+//"strictNullChecks", "noUnusedParameters" e "noUnusedLocals"
+function saudar(isManha) {
+    var saudacao;
+    if (isManha) {
+        saudacao = 'Bom dia!';
+    }
+    else {
+        saudacao = 'Tenha uma boa vida!';
+    }
+    return saudacao; // causa erro por causa da flag "strictNullChecks": true, porque ela vem como true por padrão
+}
 //# sourceMappingURL=compilador.js.map
