@@ -10,3 +10,4 @@ console.log("Nome = " + nome);
 //   let nome: string = 'Ana';
 //   console.log(`Nome = ${nome}`); //se refere a um contexto diferete,
 // })();
+//# sourceMappingURL=compilador.js.map
