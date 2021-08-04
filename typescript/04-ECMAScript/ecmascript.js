@@ -119,4 +119,16 @@ const { nome: n, preco: p, caracteristicas: { w } } = item;
 console.log(n);
 console.log(p);
 console.log(w);
+//Template String
+const usuarioID = 'SuporteCod3r';
+const notificacoes = '19';
+// const boasVindas = 'Boas vindas ' + usuarioID +
+//     'Notificações: ' + notificacoes
+const boasVindas = `
+Boas vindas ${usuarioID},
+Notificações: ${parseInt(notificacoes) > 9 ? '+9' : notificacoes}
+`;
+console.log(boasVindas);
+console.log(`${(1 + 1) * 30}`);
+console.log(`Motor: ${caracteristicas[0]}`);
 //# sourceMappingURL=ecmascript.js.map
