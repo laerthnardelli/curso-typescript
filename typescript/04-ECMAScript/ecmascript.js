@@ -65,4 +65,11 @@ function contagemRegressiva(inicio = 5, fim = inicio - 5) {
 }
 contagemRegressiva();
 contagemRegressiva(3);
+// Operador Spread & Rest #01
+const numbers = [1, 10, 99, -5, 200, 1034];
+//console.log(Math.max(numbers[0], numbers[1], numbers[2], numbers[3], numbers[4], numbers[5]));
+console.log(Math.max(...numbers)); //espalha como parametro da função max
+const turmaA = ['João', 'Maria', 'Fernanda'];
+const turmaB = ['Fernando', ...turmaA, 'Miguel', 'Lorena'];
+console.log(turmaB);
 //# sourceMappingURL=ecmascript.js.map
