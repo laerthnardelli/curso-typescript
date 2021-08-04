@@ -1,4 +1,8 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
 //let & const #01
 let seraQuePode = '?';
 console.log(seraQuePode);
@@ -182,4 +186,35 @@ console.log(nota1, nota2, nota3);
 const cientista = { primeiroNome: 'Will', expeciencia: 12 };
 const { primeiroNome, expeciencia } = cientista;
 console.log(primeiroNome, expeciencia);
+//Sobre Promises
+// Callback
+// function esperar3s(callback: (dado: string) => void) {
+//   setTimeout(() => {
+//     callback('3s depois...')
+//   }, 3000)
+// }
+// esperar3s(function (resultado: string) {
+//   console.log(resultado);
+// });
+// //Promises
+// function esperar3sPromise() {
+//   return new Promise((resolve: any) => {
+//     setTimeout(() => {
+//       resolve('3s depois promise...')
+//     }, 3000)
+//   });
+// }
+// esperar3sPromise()
+//   .then(dado => console.log(dado));
+const node_fetch_1 = __importDefault(require("node-fetch"));
+// fetch('https://swapi.dev/api/people/1/')
+//   .then(res => res.json())
+//   .then(dados => console.log(dados))
+node_fetch_1.default('https://swapi.dev/api/people/1/')
+    .then(res => res.json())
+    .then(personagem => personagem.films)
+    .then(films => node_fetch_1.default(films[0]))
+    .then(resFilm => resFilm.json())
+    .then(filme => console.log(filme.title))
+    .catch(err => console.log('Catch!!!!' + err));
 //# sourceMappingURL=ecmascript.js.map

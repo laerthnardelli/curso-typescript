@@ -245,3 +245,44 @@ console.log(nota1, nota2, nota3);
 const cientista = { primeiroNome: 'Will', expeciencia: 12 };
 const { primeiroNome, expeciencia } = cientista;
 console.log(primeiroNome, expeciencia);
+
+
+//Sobre Promises
+
+// Callback
+// function esperar3s(callback: (dado: string) => void) {
+//   setTimeout(() => {
+//     callback('3s depois...')
+//   }, 3000)
+// }
+
+// esperar3s(function (resultado: string) {
+//   console.log(resultado);
+// });
+
+// //Promises
+// function esperar3sPromise() {
+//   return new Promise((resolve: any) => {
+//     setTimeout(() => {
+//       resolve('3s depois promise...')
+//     }, 3000)
+//   });
+// }
+
+// esperar3sPromise()
+//   .then(dado => console.log(dado));
+
+import fetch from "node-fetch";
+
+// fetch('https://swapi.dev/api/people/1/')
+//   .then(res => res.json())
+//   .then(dados => console.log(dados))
+
+
+fetch('https://swapi.dev/api/people/1/')
+  .then(res => res.json())
+  .then(personagem => personagem.films)
+  .then(films => fetch(films[0]))
+  .then(resFilm => resFilm.json())
+  .then(filme => console.log(filme.title))
+  .catch(err => console.log('Catch!!!!' + err))
