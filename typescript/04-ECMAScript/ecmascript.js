@@ -26,7 +26,7 @@ for (let i = 0; i < 10; i++) {
     console.log(i);
 }
 //console.log(i);
-// Arrow Function
+// Arrow Function #01
 // const somar = function (n1: number, n2: number): number {
 //   return n1 + n2
 // }
@@ -36,4 +36,22 @@ function somar(n1, n2) {
 console.log(somar(2, 2));
 const subtrair = (n1, n2) => n1 - n2;
 console.log(subtrair(2, 3));
+// Arrow Function #02
+const saudacao = () => console.log("Olá!");
+saudacao();
+const falarCom = (pessoa) => console.log('Ola ' + pessoa);
+falarCom('João');
+// this
+// function normalComThis() {
+//     console.log(this);
+// }
+// normalComThis();
+// const normalComThisEspecial = normalComThis.bind({ nome: 'Ana' });
+// normalComThisEspecial();
+// // this???
+// console.log(this);
+// const arrowComThis = () => console.log(this);
+// arrowComThis();
+// const arrowComThisEspecial = arrowComThis.bind({ nome: 'Ana' });
+// arrowComThisEspecial();
 //# sourceMappingURL=ecmascript.js.map
