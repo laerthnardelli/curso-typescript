@@ -96,3 +96,18 @@ const turmaA: string[] = ['João', 'Maria', 'Fernanda'];
 const turmaB: string[] = ['Fernando', ...turmaA, 'Miguel', 'Lorena'];
 console.log(turmaB);
 
+// Operador Spread & Rest #02
+
+// function retornarArray(arg1: number, arg2: number): number[] {
+//   return [arg1, arg2];
+// }
+//  const numeros = retornarArray(1, 2);
+// console.log(numeros);
+
+function retornarArray(...args: number[]): number[] {
+  return args; //rest
+}
+
+const numeros = retornarArray(1, 2, 4, 5, 6, 345, 623);
+console.log(numeros);
+console.log(retornarArray(...numbers)); //Spread

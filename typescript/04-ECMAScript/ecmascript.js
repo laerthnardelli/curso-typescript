@@ -72,4 +72,16 @@ console.log(Math.max(...numbers)); //espalha como parametro da função max
 const turmaA = ['João', 'Maria', 'Fernanda'];
 const turmaB = ['Fernando', ...turmaA, 'Miguel', 'Lorena'];
 console.log(turmaB);
+// Operador Spread & Rest #02
+// function retornarArray(arg1: number, arg2: number): number[] {
+//   return [arg1, arg2];
+// }
+//  const numeros = retornarArray(1, 2);
+// console.log(numeros);
+function retornarArray(...args) {
+    return args; //rest
+}
+const numeros = retornarArray(1, 2, 4, 5, 6, 345, 623);
+console.log(numeros);
+console.log(retornarArray(...numbers)); //Spread
 //# sourceMappingURL=ecmascript.js.map
