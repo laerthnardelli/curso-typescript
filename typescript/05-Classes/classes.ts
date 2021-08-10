@@ -308,3 +308,24 @@ c1 = new Multiplicacao();
 c1.executar(2, 3, 4, 5);
 console.log(c1.getResultado()); //120
 
+
+//Construtor Privado & Singleton
+class Unico {
+  private static instance: Unico = new Unico;
+  private constructor() {}
+
+  static getInstance(): Unico {
+      return Unico.instance;
+  }
+
+  agora() {
+      return new Date;
+  }
+}
+
+//errado
+// const errado = new Unico();
+
+//correto
+console.log(Unico.getInstance().agora());
+
