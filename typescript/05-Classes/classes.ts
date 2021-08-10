@@ -329,3 +329,20 @@ class Unico {
 //correto
 console.log(Unico.getInstance().agora());
 
+
+
+// Somente Leitura - readonly
+class Aviao {
+  public readonly modelo: string;
+
+  constructor(modelo: string,
+      public readonly prefixo: string) {
+      this.modelo = modelo;
+  }
+}
+
+const turboHelice = new Aviao('Tu-114', 'PT-ABC');
+// turboHelice.modelo = 'DC-8';
+// turboHelice.prefixo = 'PT-DEF';
+console.log(turboHelice);
+
