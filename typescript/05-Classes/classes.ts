@@ -267,7 +267,7 @@ class Matematica {
   static PI: number = 3.1416;
 
   static areaCirc(raio: number): number {
-      return Matematica.PI * raio * raio;
+    return Matematica.PI * raio * raio;
   }
 }
 
@@ -276,4 +276,35 @@ class Matematica {
 // console.log(m1.areaCirc(4));
 
 console.log(Matematica.areaCirc(4));
+
+// Classe abstrata
+abstract class Calculo {
+  protected resultado: number = 0;
+
+  abstract executar(...numeros: number[]): void;
+
+  getResultado(): number {
+    return this.resultado;
+  }
+}
+
+class Soma extends Calculo {
+  executar(...numeros: number[]): void {
+    this.resultado = numeros.reduce((total, atual) => total + atual);
+  }
+}
+
+class Multiplicacao extends Calculo {
+  executar(...numeros: number[]): void {
+    this.resultado = numeros.reduce((total, atual) => total * atual);
+  }
+}
+
+let c1: Calculo = new Soma();
+c1.executar(2, 3, 4, 5);
+console.log(c1.getResultado()); //14
+
+c1 = new Multiplicacao();
+c1.executar(2, 3, 4, 5);
+console.log(c1.getResultado()); //120
 

@@ -209,4 +209,29 @@ Matematica.PI = 3.1416;
 // m1.PI = 4.2;
 // console.log(m1.areaCirc(4));
 console.log(Matematica.areaCirc(4));
+// Classe abstrata
+class Calculo {
+    constructor() {
+        this.resultado = 0;
+    }
+    getResultado() {
+        return this.resultado;
+    }
+}
+class Soma extends Calculo {
+    executar(...numeros) {
+        this.resultado = numeros.reduce((total, atual) => total + atual);
+    }
+}
+class Multiplicacao extends Calculo {
+    executar(...numeros) {
+        this.resultado = numeros.reduce((total, atual) => total * atual);
+    }
+}
+let c1 = new Soma();
+c1.executar(2, 3, 4, 5);
+console.log(c1.getResultado()); //14
+c1 = new Multiplicacao();
+c1.executar(2, 3, 4, 5);
+console.log(c1.getResultado()); //120
 //# sourceMappingURL=classes.js.map
