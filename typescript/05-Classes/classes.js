@@ -126,6 +126,7 @@ console.log(prod2.resumo());
 //private - visivel dentro da propria classe - não é transmitido por herança
 //protected - visivel dentro da propria classe e transmitido por herança
 //public - visivel dentro da propria classe, transmitido por herança, e visivel para todo mundo.
+// Herança #01  
 class Carro {
     constructor(marca, modelo, velocidadeMaxima = 200) {
         this.marca = marca;
@@ -156,6 +157,7 @@ Array(50).fill(0).forEach(() => carro1.acelerar());
 console.log(carro1.acelerar());
 Array(40).fill(0).forEach(() => carro1.frear());
 console.log(carro1.frear());
+// Herança #02  
 class Ferrari extends Carro {
     constructor(modelo, velocidadeMaxima) {
         super('Ferrari', modelo, velocidadeMaxima);
