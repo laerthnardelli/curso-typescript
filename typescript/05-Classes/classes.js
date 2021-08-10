@@ -86,6 +86,46 @@ console.log(prod1.resumo());
 const prod2 = new Produto('Caderno Escolar', 18.80, 0.15);
 console.log(prod2.resumo());
 //Modificadores de Acesso - Private
+// class Carro {
+//   private velocidadeAtual: number = 0
+//   constructor(
+//     public marca: string,
+//     public modelo: string,
+//     private velocidadeMaxima: number = 200) {
+//   }
+//   private alterarVelocidade(delta: number): number {
+//     const novaVelocidade = this.velocidadeAtual + delta;
+//     const velocidadeValida = novaVelocidade >= 0 && novaVelocidade <= this.velocidadeMaxima;
+//     if (velocidadeValida) {
+//       this.velocidadeAtual = novaVelocidade;
+//     } else {
+//       this.velocidadeAtual = delta > 0 ? this.velocidadeMaxima : 0;
+//     }
+//     return this.velocidadeAtual;
+//   }
+//   public acelerar(): number {
+//     return this.alterarVelocidade(5);
+//   }
+//   public frear(): number {
+//     return this.alterarVelocidade(-5);
+//   }
+// }
+// const carro1 = new Carro('Ford', 'Ka', 185);
+// Array(50).fill(0).forEach(() => carro1.acelerar());
+// console.log(carro1.acelerar());
+// Array(40).fill(0).forEach(() => carro1.frear());
+// console.log(carro1.frear());
+// simular "erros"
+// carro1.velocidadeAtual = 300;
+// console.log('atual -> ' + carro1.velocidadeAtual);
+// carro1.velocidadeMaxima = 500;
+// console.log('máxima -> ' + carro1.velocidadeMaxima);
+// carro1.alterarVelocidade(150)
+// console.log('atual -> ' + carro1.velocidadeAtual);
+//Modificadores de Acesso - protected
+//private - visivel dentro da propria classe - não é transmitido por herança
+//protected - visivel dentro da propria classe e transmitido por herança
+//public - visivel dentro da propria classe, transmitido por herança, e visivel para todo mundo.
 class Carro {
     constructor(marca, modelo, velocidadeMaxima = 200) {
         this.marca = marca;
@@ -116,11 +156,25 @@ Array(50).fill(0).forEach(() => carro1.acelerar());
 console.log(carro1.acelerar());
 Array(40).fill(0).forEach(() => carro1.frear());
 console.log(carro1.frear());
-// simular "erros"
-// carro1.velocidadeAtual = 300;
-// console.log('atual -> ' + carro1.velocidadeAtual);
-// carro1.velocidadeMaxima = 500;
-// console.log('máxima -> ' + carro1.velocidadeMaxima);
-// carro1.alterarVelocidade(150)
-// console.log('atual -> ' + carro1.velocidadeAtual);
+class Ferrari extends Carro {
+    constructor(modelo, velocidadeMaxima) {
+        super('Ferrari', modelo, velocidadeMaxima);
+        // ...
+    }
+    //sobrescrevendo
+    acelerar() {
+        return this.alterarVelocidade(20);
+    }
+    //sobrescrevendo
+    frear() {
+        return this.alterarVelocidade(-15);
+    }
+}
+const f40 = new Ferrari('F40', 324);
+console.log(`${f40.marca} ${f40.modelo}`);
+console.log(f40.acelerar());
+console.log(f40.acelerar());
+console.log(f40.acelerar());
+console.log(f40.frear());
+console.log(f40.frear());
 //# sourceMappingURL=classes.js.map
