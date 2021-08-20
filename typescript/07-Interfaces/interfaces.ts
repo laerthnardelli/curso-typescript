@@ -45,10 +45,40 @@ console.log('Interfaces e Propriedades');
 // mudarNome(pessoa);
 // saudarComOla(pessoa);
 
+// interface Humano {
+//   nome: string;
+//   idade?: number; //a interrogação se refere para dizer que é um atributo opcional
+//   [props: string]: any  //assim, o atributo tem um nome dinamico
+// }
+
+// function saudarComOla(pessoa: Humano) {
+//   console.log('Olá, ' + pessoa.nome);
+// }
+
+// function mudarNome(pessoa: Humano) {
+//   pessoa.nome = 'Joana';
+// }
+
+// const pessoa = {
+//   nome: 'João',
+//   //idade: 27,
+// }
+
+// saudarComOla(pessoa);
+// mudarNome(pessoa);
+// saudarComOla(pessoa);
+// //saudarComOla({nome: 'Jonas', idade: 27}); //gera um erro porque não é condizendo com a interface Humano
+// saudarComOla({ nome: 'Jonas', idade: 27, altura: 1.75 });
+
+//Interfaces e Métodos
+console.log('Interfaces e Métodos')
+
+
 interface Humano {
   nome: string;
   idade?: number; //a interrogação se refere para dizer que é um atributo opcional
   [props: string]: any  //assim, o atributo tem um nome dinamico
+  saudar(sobrenome: string): void;
 }
 
 function saudarComOla(pessoa: Humano) {
@@ -59,13 +89,15 @@ function mudarNome(pessoa: Humano) {
   pessoa.nome = 'Joana';
 }
 
-const pessoa = {
+const pessoa: Humano = {
   nome: 'João',
-  //idade: 27,
+  idade: 27,
+  saudar(sobrenome: string) {
+    console.log('Olá, meu nome é ' + this.nome + ' ' + sobrenome);
+  }
 }
 
 saudarComOla(pessoa);
 mudarNome(pessoa);
 saudarComOla(pessoa);
-//saudarComOla({nome: 'Jonas', idade: 27}); //gera um erro porque não é condizendo com a interface Humano
-saudarComOla({ nome: 'Jonas', idade: 27, altura: 1.75 });
+pessoa.saudar('Skywalker');
