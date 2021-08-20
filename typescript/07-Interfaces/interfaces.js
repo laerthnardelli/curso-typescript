@@ -93,4 +93,31 @@ potencia = function (base, exp) {
 console.log(potencia(3, 10));
 console.log(Math.pow(3, 10));
 console.log(Math.pow(3, 10));
+class RealA {
+    a() { }
+    ;
+}
+class RealAB {
+    a() { }
+    ;
+    b() { }
+    ;
+}
+class RealABC {
+    a() { }
+    ;
+    b() { }
+    ;
+    c() { }
+    ;
+}
+// function teste(b: B) {
+// }
+// teste(new RealABC);
+class AbstrataABD {
+    a() { }
+    ;
+    b() { }
+    ;
+}
 //# sourceMappingURL=interfaces.js.map
