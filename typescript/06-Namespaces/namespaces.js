@@ -53,9 +53,11 @@ console.log('Namespaces Aninhados');
 // console.log(PI);
 //Namespaces em Múltiplos Arquivos
 console.log('Namespaces em Múltiplos Arquivos');
-///<reference path="geometriaCirc.ts"/>
+//Namespaces Imports
+///<reference path="geometriaCirc.ts"/> 
 ///<reference path="geometriaRect.ts"/>
 console.log(Geometria.Area.circunferencia(10));
 console.log(Geometria.Area.retangulo(10, 20));
 //tsc -w --outFile namespaces.js geometriaCirc.ts geomatriaRect.ts namespaces.ts
+//Limitaçã dos Namespaces
 //# sourceMappingURL=namespaces.js.map
