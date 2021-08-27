@@ -93,4 +93,37 @@ class DiferencaEntreDatas extends OperacaoBinaria {
 const d1 = new DataNew(1, 2, 2020);
 const d2 = new DataNew(5, 5, 2022);
 console.log(new DiferencaEntreDatas(d1, d2).executar());
+// Exemplo Classes com Generics
+// Exemplo Classe Fila
+// Atributo: fila (Array)
+// Métodos: entrar, proximo, imprimir
+class Fila {
+    constructor(...args) {
+        this.fila = args;
+    }
+    entrar(elemento) {
+        this.fila.push(elemento);
+    }
+    proximo() {
+        if (this.fila.length >= 0 && this.fila[0]) {
+            const primeiro = this.fila[0];
+            this.fila.splice(0, 1);
+            return primeiro;
+        }
+        else {
+            return null;
+        }
+    }
+    imprimir() {
+        console.log(this.fila);
+    }
+}
+const fila = new Fila('Gui', 'Pedro', 'Ana', 'Lu');
+fila.imprimir();
+fila.entrar('Rafael');
+fila.imprimir();
+console.log(fila.proximo());
+console.log(fila.proximo());
+console.log(fila.proximo());
+fila.imprimir();
 //# sourceMappingURL=genericos.js.map
