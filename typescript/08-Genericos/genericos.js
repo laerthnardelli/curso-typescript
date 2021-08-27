@@ -41,18 +41,31 @@ console.log('Tipo Função com Genérico');
 const chamarEcho = echoMelhorado;
 console.log(chamarEcho('Alguma coisa'));
 // Class com Generics #01
-console.log('Class com Generics #01');
+// console.log('Class com Generics #01');
+// class OperacaoBinaria {
+//   constructor(public operando1: any,
+//     public operando2: any) { }
+//   executar() {
+//     return this.operando1 + this.operando2; //não gera nenhum tipo de validação
+//   }
+// }
+// console.log(new OperacaoBinaria('Bom ', 'dia').executar());
+// console.log(new OperacaoBinaria(3, 7).executar());
+// console.log(new OperacaoBinaria(3, 'Opa').executar());
+// console.log(new OperacaoBinaria({}, null).executar());
+// Class com Generics #02
+console.log('Class com Generics #02');
 class OperacaoBinaria {
     constructor(operando1, operando2) {
         this.operando1 = operando1;
         this.operando2 = operando2;
     }
+}
+class SomaBinaria extends OperacaoBinaria {
     executar() {
-        return this.operando1 + this.operando2; //não gera nenhum tipo de validação
+        return this.operando1 + this.operando2;
     }
 }
-console.log(new OperacaoBinaria('Bom ', 'dia').executar());
-console.log(new OperacaoBinaria(3, 7).executar());
-console.log(new OperacaoBinaria(3, 'Opa').executar());
-console.log(new OperacaoBinaria({}, null).executar());
+console.log(new SomaBinaria(3, 4).executar());
+console.log(new SomaBinaria(30, 434).executar());
 //# sourceMappingURL=genericos.js.map
