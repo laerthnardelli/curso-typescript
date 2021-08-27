@@ -97,6 +97,36 @@ console.log(new DiferencaEntreDatas(d1, d2).executar());
 // Exemplo Classe Fila
 // Atributo: fila (Array)
 // Métodos: entrar, proximo, imprimir
+// class Fila<T> {
+//   private fila: Array<T>
+//   constructor(...args: T[]) {
+//     this.fila = args;
+//   }
+//   entrar(elemento: T) {
+//     this.fila.push(elemento);
+//   }
+//   proximo(): T | null {
+//     if (this.fila.length >= 0 && this.fila[0]) {
+//       const primeiro = this.fila[0];
+//       this.fila.splice(0, 1);
+//       return primeiro;
+//     } else {
+//       return null;
+//     }
+//   }
+//   imprimir() {
+//     console.log(this.fila);
+//   }
+// }
+// const fila = new Fila<string>('Gui', 'Pedro', 'Ana', 'Lu');
+// fila.imprimir();
+// fila.entrar('Rafael');
+// fila.imprimir();
+// console.log(fila.proximo());
+// console.log(fila.proximo());
+// console.log(fila.proximo());
+// fila.imprimir();
+// Restrições (Constraints);
 class Fila {
     constructor(...args) {
         this.fila = args;
@@ -126,4 +156,7 @@ console.log(fila.proximo());
 console.log(fila.proximo());
 console.log(fila.proximo());
 fila.imprimir();
+const novaFila = new Fila(1, 2, 3);
+novaFila.imprimir();
+// const outraFila = new Fila<boolean>(true, false) // não funciona porque não esta acresentado na minha fila 
 //# sourceMappingURL=genericos.js.map
