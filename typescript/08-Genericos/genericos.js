@@ -36,4 +36,8 @@ imprimir([
     { nome: 'Cicrano', idade: 23 },
     { nome: 'Beltrano', idade: 24 }
 ]);
+// Tipo Função com Genérico 
+console.log('Tipo Função com Genérico');
+const chamarEcho = echoMelhorado;
+console.log(chamarEcho('Alguma coisa'));
 //# sourceMappingURL=genericos.js.map

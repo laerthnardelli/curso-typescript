@@ -47,3 +47,15 @@ imprimir<Aluno>([
   { nome: 'Cicrano', idade: 23 },
   { nome: 'Beltrano', idade: 24 }
 ]);
+
+// Tipo Função com Genérico 
+console.log('Tipo Função com Genérico');
+
+// type Echo = (data: any) => any;
+// const chamarEcho: Echo = echoMelhorado;
+// console.log(chamarEcho('Alguma coisa'));
+
+type Echo = <T>(data: T) => T;
+const chamarEcho: Echo = echoMelhorado;
+console.log(chamarEcho<string>('Alguma coisa'));
+
