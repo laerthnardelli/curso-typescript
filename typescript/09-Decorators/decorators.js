@@ -101,6 +101,39 @@ function perfilAdmin(construtor) {
     };
 }
 //Decorator de Método
+// class ContaCorrente {
+//   private saldo: number;
+//   constructor(saldo: number) {
+//     this.saldo = saldo;
+//   }
+//   @congelar
+//   sacar(valor: number) {
+//     if (valor <= this.saldo) {
+//       this.saldo -= valor;
+//       return true;
+//     } else {
+//       return false;
+//     }
+//   }
+//   @congelar
+//   getSaldo() {
+//     return this.saldo;
+//   }
+// }
+// const cc = new ContaCorrente(10248.57);
+// cc.sacar(5000);
+// console.log(cc.getSaldo())
+// // cc.getSaldo = function() {
+// //     return this['saldo'] + 7000;
+// // }
+// console.log(cc.getSaldo());
+// // Object.freeze() //congela o objeto, deixa ele imútavel
+// function congelar(alvo: any, nomeMetodo: String, descritor: PropertyDescriptor) {
+//   console.log(alvo);
+//   console.log(nomeMetodo);
+//   descritor.writable = false;
+// }
+//Decorator de Atributo
 class ContaCorrente {
     constructor(saldo) {
         this.saldo = saldo;
@@ -119,6 +152,9 @@ class ContaCorrente {
     }
 }
 __decorate([
+    naoNegativo
+], ContaCorrente.prototype, "saldo", void 0);
+__decorate([
     congelar
 ], ContaCorrente.prototype, "sacar", null);
 __decorate([
@@ -126,15 +162,29 @@ __decorate([
 ], ContaCorrente.prototype, "getSaldo", null);
 const cc = new ContaCorrente(10248.57);
 cc.sacar(5000);
+cc.sacar(5248.57);
 console.log(cc.getSaldo());
-// cc.getSaldo = function() {
-//     return this['saldo'] + 7000;
-// }
 console.log(cc.getSaldo());
 // Object.freeze() //congela o objeto, deixa ele imútavel
 function congelar(alvo, nomeMetodo, descritor) {
     console.log(alvo);
     console.log(nomeMetodo);
     descritor.writable = false;
+}
+function naoNegativo(alvo, nomePropriedade) {
+    delete alvo[nomePropriedade];
+    Object.defineProperty(alvo, nomePropriedade, {
+        get: function () {
+            return alvo["_" + nomePropriedade];
+        },
+        set: function (valor) {
+            if (valor < 0) {
+                throw new Error('Saldo Inválido');
+            }
+            else {
+                alvo["_" + nomePropriedade] = valor;
+            }
+        }
+    });
 }
 //# sourceMappingURL=decorators.js.map
