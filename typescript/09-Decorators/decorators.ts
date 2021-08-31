@@ -144,3 +144,54 @@ function perfilAdmin<T extends Construtor>(construtor: T) {
     }
   }
 }
+
+
+//Decorator de Método
+
+class ContaCorrente {
+
+  private saldo: number;
+
+  constructor(saldo: number) {
+    this.saldo = saldo;
+  }
+
+  @congelar
+  sacar(valor: number) {
+    if (valor <= this.saldo) {
+      this.saldo -= valor;
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  @congelar
+  getSaldo() {
+    return this.saldo;
+  }
+}
+
+const cc = new ContaCorrente(10248.57);
+cc.sacar(5000);
+console.log(cc.getSaldo())
+
+// cc.getSaldo = function() {
+//     return this['saldo'] + 7000;
+// }
+
+console.log(cc.getSaldo());
+
+
+// Object.freeze() //congela o objeto, deixa ele imútavel
+function congelar(alvo: any, nomeMetodo: String, descritor: PropertyDescriptor) {
+  console.log(alvo);
+  console.log(nomeMetodo);
+  descritor.writable = false;
+}
+
+
+
+
+
+
