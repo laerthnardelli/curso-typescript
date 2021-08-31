@@ -7,15 +7,38 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 //Creating Class Decorator
 console.log('Decorator');
+// @locarClasse
+// class Eletrodomestico {
+//   constructor() {
+//     console.log('novo...');
+//   }
+// }
+// function locarClasse(constructor: Function) {
+//   console.log(constructor);
+// }
+// Decorator Factory 
+//@decorator({ a: 'Teste', b: 123 })
 let Eletrodomestico = class Eletrodomestico {
     constructor() {
         console.log('novo...');
     }
 };
 Eletrodomestico = __decorate([
-    locarClasse
+    logarClasseSe(false)
 ], Eletrodomestico);
-function locarClasse(constructor) {
+function logarClasse(constructor) {
     console.log(constructor);
+}
+function decoratorVazio(_) { }
+function logarClasseSe(valor) {
+    return valor ? logarClasse : decoratorVazio;
+}
+// function logarClasseSe(valor: boolean) {
+//   return valor ? logarClasse : decoratorVazio
+// }
+function decorator(obj) {
+    return function (_) {
+        console.log(obj.a + ' ' + obj.b);
+    };
 }
 //# sourceMappingURL=decorators.js.map
