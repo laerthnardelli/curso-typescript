@@ -17,31 +17,59 @@ console.log('Decorator');
 
 // Decorator Factory 
 
-//@decorator({ a: 'Teste', b: 123 })
-@logarClasseSe(false)
+//// @decorator({ a: 'Teste', b: 123 })
+// @logarClasseSe(false)
+// class Eletrodomestico {
+//   constructor() {
+//     console.log('novo...');
+//   }
+// }
+
+// function logarClasse(constructor: Function) {
+//   console.log(constructor);
+// }
+
+// function decoratorVazio(_: Function) { }
+
+// function logarClasseSe(valor: boolean) {
+//   return valor ? logarClasse : decoratorVazio
+// }
+
+// // function logarClasseSe(valor: boolean) {
+// //   return valor ? logarClasse : decoratorVazio
+// // }
+
+
+// function decorator(obj: { a: string, b?: number }) {
+//   return function (_: Function): void {
+//     console.log(obj.a + ' ' + obj.b)
+//   }
+// }
+
+
+
+//Alterando Construtor com Decorator de Classe
+
+@logarObjeto
 class Eletrodomestico {
   constructor() {
     console.log('novo...');
   }
 }
 
-function logarClasse(constructor: Function) {
-  console.log(constructor);
-}
+type Construtor = { new(...args: any[]): {} }
 
-function decoratorVazio(_: Function) { }
-
-function logarClasseSe(valor: boolean) {
-  return valor ? logarClasse : decoratorVazio
-}
-
-// function logarClasseSe(valor: boolean) {
-//   return valor ? logarClasse : decoratorVazio
-// }
-
-
-function decorator(obj: { a: string, b?: number }) {
-  return function (_: Function): void {
-    console.log(obj.a + ' ' + obj.b)
+function logarObjeto(construtor: Construtor) {
+  console.log('Carregado...')
+  return class extends construtor {
+    constructor(...args: any[]) {
+      console.log('Antes...')
+      super(...args)
+      console.log('Depois...')
+    }
   }
 }
+
+new Eletrodomestico()
+new Eletrodomestico()
+new Eletrodomestico()

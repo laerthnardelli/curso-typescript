@@ -17,28 +17,48 @@ console.log('Decorator');
 //   console.log(constructor);
 // }
 // Decorator Factory 
-//@decorator({ a: 'Teste', b: 123 })
+//// @decorator({ a: 'Teste', b: 123 })
+// @logarClasseSe(false)
+// class Eletrodomestico {
+//   constructor() {
+//     console.log('novo...');
+//   }
+// }
+// function logarClasse(constructor: Function) {
+//   console.log(constructor);
+// }
+// function decoratorVazio(_: Function) { }
+// function logarClasseSe(valor: boolean) {
+//   return valor ? logarClasse : decoratorVazio
+// }
+// // function logarClasseSe(valor: boolean) {
+// //   return valor ? logarClasse : decoratorVazio
+// // }
+// function decorator(obj: { a: string, b?: number }) {
+//   return function (_: Function): void {
+//     console.log(obj.a + ' ' + obj.b)
+//   }
+// }
+//Alterando Construtor com Decorator de Classe
 let Eletrodomestico = class Eletrodomestico {
     constructor() {
         console.log('novo...');
     }
 };
 Eletrodomestico = __decorate([
-    logarClasseSe(false)
+    logarObjeto
 ], Eletrodomestico);
-function logarClasse(constructor) {
-    console.log(constructor);
-}
-function decoratorVazio(_) { }
-function logarClasseSe(valor) {
-    return valor ? logarClasse : decoratorVazio;
-}
-// function logarClasseSe(valor: boolean) {
-//   return valor ? logarClasse : decoratorVazio
-// }
-function decorator(obj) {
-    return function (_) {
-        console.log(obj.a + ' ' + obj.b);
+function logarObjeto(construtor) {
+    console.log('Carregado...');
+    return class extends construtor {
+        constructor(...args) {
+            console.log('Antes...');
+            super(...args);
+            console.log('Depois...');
+        }
     };
 }
+new Eletrodomestico();
+new Eletrodomestico();
+new Eletrodomestico();
 //# sourceMappingURL=decorators.js.map
