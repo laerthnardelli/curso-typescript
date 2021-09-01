@@ -5,6 +5,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 //Creating Class Decorator
 console.log('Decorator');
 // @locarClasse
@@ -134,6 +137,53 @@ function perfilAdmin(construtor) {
 //   descritor.writable = false;
 // }
 //Decorator de Atributo
+// class ContaCorrente {
+//   @naoNegativo
+//   private saldo: number;
+//   constructor(saldo: number) {
+//     this.saldo = saldo;
+//   }
+//   @congelar
+//   sacar(valor: number) {
+//     if (valor <= this.saldo) {
+//       this.saldo -= valor;
+//       return true;
+//     } else {
+//       return false;
+//     }
+//   }
+//   @congelar
+//   getSaldo() {
+//     return this.saldo;
+//   }
+// }
+// const cc = new ContaCorrente(10248.57);
+// cc.sacar(5000);
+// cc.sacar(5248.57);
+// console.log(cc.getSaldo())
+// console.log(cc.getSaldo());
+// // Object.freeze() //congela o objeto, deixa ele imútavel
+// function congelar(alvo: any, nomeMetodo: String, descritor: PropertyDescriptor) {
+//   console.log(alvo);
+//   console.log(nomeMetodo);
+//   descritor.writable = false;
+// }
+// function naoNegativo(alvo: any, nomePropriedade: string) {
+//   delete alvo[nomePropriedade];
+//   Object.defineProperty(alvo, nomePropriedade, {
+//     get: function (): any {
+//       return alvo["_" + nomePropriedade];
+//     },
+//     set: function (valor: any): void {
+//       if (valor < 0) {
+//         throw new Error('Saldo Inválido');
+//       } else {
+//         alvo["_" + nomePropriedade] = valor;
+//       }
+//     }
+//   });
+// }
+//Decorator de Parâmetro
 class ContaCorrente {
     constructor(saldo) {
         this.saldo = saldo;
@@ -155,7 +205,8 @@ __decorate([
     naoNegativo
 ], ContaCorrente.prototype, "saldo", void 0);
 __decorate([
-    congelar
+    congelar,
+    __param(0, paramInfo)
 ], ContaCorrente.prototype, "sacar", null);
 __decorate([
     congelar
@@ -186,5 +237,10 @@ function naoNegativo(alvo, nomePropriedade) {
             }
         }
     });
+}
+function paramInfo(alvo, nomeMetodo, indiceParam) {
+    console.log(`Alvo: ${alvo}`);
+    console.log(`Método: ${nomeMetodo}`);
+    console.log(`Índice Param: ${indiceParam}`);
 }
 //# sourceMappingURL=decorators.js.map
