@@ -4,16 +4,23 @@ const browserify = require('browserify');
 const source = require('vinyl-source-stream');
 const tsify = require('tsify');
 
-function limparDist(cb) {
-  cb();
+function limparDist() {
+  return del(['dist']);
 }
 
 function copiarHTML(cb) {
-  cb();
+  return src('public/**/*').pipe(dest('dist'));
 }
 
 function gerarJS(cb) {
-  cd();
+  return browserify({
+    basedir: '.',
+    entries: ['src/main.ts']
+  })
+    .plugin(tsify)
+    .bundle()
+    .pipe(source('app.js'))
+    .pipe(dest('dist'));
 }
 
 exports.default = series(
