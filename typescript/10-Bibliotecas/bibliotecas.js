@@ -8,4 +8,6 @@
 //03 - Usando Definição de Tipos Pública
 //npm i --save-dev @types/jquery
 $('body').append('Usando jQuery');
+//https://www.typescriptlang.org/docs/handbook/declaration-files/by-example.html
+//https://microsoft.github.io/TypeSearch/
 //# sourceMappingURL=bibliotecas.js.map
