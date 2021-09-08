@@ -23,3 +23,7 @@ const livro = new Livro('Dom Quixote', 108.80, 0.10)
 
 $('body').append(`<h1>${livro.nome}</h1>`);
 $('body').append(`<h2>Preço: R$${livro.precoComDesconto()}</h2>`);
+
+
+//Gerando JavaScript de Produção (Minificado)
+//npm i --save-dev gulp-uglify gulp-rename

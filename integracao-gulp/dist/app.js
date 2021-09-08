@@ -10901,6 +10901,8 @@ var livro = new livro_1.default('Dom Quixote', 108.80, 0.10);
 // console.log(livro.precoComDesconto())
 (0, jquery_1.default)('body').append("<h1>" + livro.nome + "</h1>");
 (0, jquery_1.default)('body').append("<h2>Pre\u00E7o: R$" + livro.precoComDesconto() + "</h2>");
+//Gerando JavaScript de Produção (Minificado)
+//npm i --save-dev gulp-uglify gulp-rename
 
 },{"./modelo/livro":3,"jquery":1}],3:[function(require,module,exports){
 "use strict";
