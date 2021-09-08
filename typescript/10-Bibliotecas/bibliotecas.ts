@@ -10,5 +10,12 @@
 
 //criando um arquivo a parte chamado jquery.d.ts, para utlizar o declare const $: any
 
+// $('body').append('Usando jQuery')
+
+
+//03 - Usando Definição de Tipos Pública
+//npm i --save-dev @types/jquery
+
 $('body').append('Usando jQuery')
+
 
