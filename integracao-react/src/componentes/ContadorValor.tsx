@@ -1,12 +1,8 @@
+import React from 'react'
 
-import React from 'react';
-
-interface ContadorValorProps{
-  contador: number
+interface IContadorValorProps {
+    contador: number
 }
 
-export default (props: ContadorValorProps) => {
-  return (
+export default (props: IContadorValorProps) => 
     <p>{props.contador}</p>
-  )
-}
